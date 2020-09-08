@@ -1,0 +1,106 @@
+.container {
+  .content {
+    display: flex;
+    height: 100%;
+    .image {
+      background: url("../../../assets/workplace.png");
+      background-repeat: no-repeat;
+      width: 700px;
+      background-size: 100% 100%;
+    }
+    .content-wrapper {
+      margin-left: 50px;
+      margin-top: 80px;
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+      .header-name {
+        font-size: 30px;
+        font-weight: 500;
+      }
+      .some-content {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .company {
+        margin-top: 50px;
+        .name {
+          font-size: 15px;
+          color: grey;
+        }
+        input {
+          margin-top: 10px;
+          width: 90%;
+          padding: 10px;
+          outline: none;
+        }
+      }
+      .next-wrapper {
+        display: flex;
+        .location {
+          margin-top: 10px;
+          .name {
+            font-size: 15px;
+            color: grey;
+          }
+          input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+          }
+        }
+        .employees {
+          margin-left: 40px;
+          margin-top: 10px;
+          .name {
+            font-size: 15px;
+            color: grey;
+          }
+          input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+          }
+        }
+      }
+      .domain {
+        margin-top: 10px;
+        .name {
+          font-size: 15px;
+          color: grey;
+        }
+        .input {
+          position: relative;
+          width: 90%;
+          input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            outline: none;
+          }
+          button {
+            padding: 10px;
+            position: absolute;
+            right: -25px;
+            top: 10px;
+            outline: none;
+          }
+        }
+      }
+      .button {
+        margin-top: 40px;
+        button {
+          padding: 10px 40px;
+          background: limegreen;
+          color: white;
+          outline: none;
+          border: none;
+          letter-spacing: 0.8px;
+        }
+      }
+    }
+  }
+}

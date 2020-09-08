@@ -1,0 +1,93 @@
+<div class="form">
+  <form [formGroup]="announcementForm" (ngSubmit)="submit()">
+    <div class="subject">
+      <div>Subject</div>
+      <input type="text" formControlName="subject" />
+    </div>
+    <div class="category">
+      <div>Select Category</div>
+      <ul>
+        <li
+          class="current"
+          (click)="event = false; reminder = false; clear('announcement')"
+        >
+          Announcement
+        </li>
+        <li (click)="event = true; reminder = false; clear('events')">Event</li>
+        <li (click)="event = false; reminder = true; clear('reminder')">
+          Reminder
+        </li>
+      </ul>
+    </div>
+    <div class="event-section" *ngIf="event">
+      <div class="event">
+        <div class="date">
+          <div>Date</div>
+          <input type="date" formControlName="date" />
+        </div>
+        <div class="time">
+          <div>Time</div>
+          <input type="time" id="time" formControlName="time" />
+        </div>
+      </div>
+      <div class="add">+ Add it to google calendar</div>
+      <div class="location">
+        <input
+          type="text"
+          placeholder="Enter location"
+          formControlName="location"
+        />
+      </div>
+    </div>
+    <div class="reminder" *ngIf="reminder">
+      <div class="date">
+        <div>Expires On</div>
+        <input type="date" formControlName="date" />
+      </div>
+    </div>
+    <div class="description">
+      <div>Description</div>
+      <textarea formControlName="description"> </textarea>
+    </div>
+    <div class="notify">
+      <div>Notify To</div>
+      <div class="checkBox" *ngIf="checkBox">
+        <div class="class{{ i }}" *ngFor="let value of checkBox; index as i">
+          <input
+            type="checkbox"
+            value="{{ i }}"
+            id="check{{ i }}"
+            (change)="
+              getSelectedCheckBoxValues(value);
+              i == 1 || i == 2 ? (showEmailBox = true) : (showEmailBox = false);
+              value.state = !value.state ? (value.state = false) : true
+            "
+          />
+          <span *ngIf="value">{{ value.text }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="emailBox" *ngIf="showEmailBox">
+      <textarea
+        placeholder="Enter multi email id and seperated by commas and @"
+        formControlName="multiEmail"
+      ></textarea>
+    </div>
+
+    <div class="bottom">
+      <div class="discard">
+        <button type="button" class="discard" (click)="resetForm()">
+          Discard
+        </button>
+        <button
+          type="submit"
+          class="send"
+          [disabled]="!announcementForm.valid"
+          [ngStyle]="{ opacity: !announcementForm.valid ? '0.5' : '1' }"
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

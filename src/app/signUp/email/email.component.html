@@ -1,0 +1,46 @@
+<div class="container" *ngIf="email">
+  <app-header [login]="true"></app-header>
+  <div class="content">
+    <div class="image"></div>
+    <div class="content-wrapper">
+      <div class="name">Make Your Life Easy with Intranet!</div>
+      <div class="some-content">
+        To make a workspace from scratch, please confirm your email address.
+      </div>
+      <form [formGroup]="emailForm" (ngSubmit)="submit()">
+        <div class="email">
+          <div class="email-address">Email Address</div>
+          <input
+            type="email"
+            placeholder="name@email.com"
+            formControlName="email"
+          />
+          <p
+            *ngIf="
+              !emailForm.get('email').valid && emailForm.get('email').touched
+            "
+            class="error"
+          >
+            *Enter a valid email
+          </p>
+        </div>
+        <p *ngIf="message">* {{ message }}</p>
+        <div class="button">
+          <button
+            type="submit"
+            [disabled]="!emailForm.valid"
+            [ngStyle]="{ opacity: !emailForm.valid ? '0.5' : '1' }"
+          >
+            Confirm Email
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-otp
+  *ngIf="otp"
+  [user]="false"
+  (back)="email = true; otp = false"
+></app-otp>

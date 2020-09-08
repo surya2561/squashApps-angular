@@ -3,14 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  key: '123456$#@$^@1ERF'
 };
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+const port = "http://localhost:8080";
+
+export const api = {
+  signin: port + '/api/squash/users/signin',
+  signUp: port + '/api/squash/users/signUp',
+  getOtp: port + '/api/squash/otp/sendOtp',
+  verifyOtp: port + '/api/squash/otp/verifyOtp',
+  saveCompany: port + '/api/squash/company/saveCompany',
+  saveAnnouncement: port + '/api/squash/announcement/saveAnnouncement',
+  getAnnouncements: port + '/api/squash/announcement/getAnnouncements',
+  saveComments: port + '/api/squash/announcement/saveComments',
+  getComments: port + '/api/squash/announcement/getComments'
+};

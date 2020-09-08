@@ -1,0 +1,93 @@
+<div class="container">
+  <app-header [login]="false"></app-header>
+  <div class="content">
+    <div class="image"></div>
+    <div class="content-wrapper">
+      <div class="header-name">Setup Your Application</div>
+      <div class="some-content">
+        To make a workspace from scratch, please confirm your email address.
+      </div>
+      <form [formGroup]="companyForm" (ngSubmit)="submit()">
+        <div class="company">
+          <div class="name">Company Name</div>
+          <input
+            type="text"
+            formControlName="companyName"
+            placeholder="Enter your company name"
+          />
+          <p
+            *ngIf="
+              !companyForm.get('companyName').valid &&
+              companyForm.get('companyName').touched
+            "
+            class="error"
+          >
+            *Enter a company name
+          </p>
+        </div>
+        <div class="next-wrapper">
+          <div class="location">
+            <div class="name">Location</div>
+            <input type="text" formControlName="location" placeholder="John" />
+            <p
+              *ngIf="
+                !companyForm.get('location').valid &&
+                companyForm.get('location').touched
+              "
+              class="error"
+            >
+              *Enter a company location
+            </p>
+          </div>
+          <div class="employees">
+            <div class="name">No.of Employees</div>
+            <input
+              type="text"
+              formControlName="employeesCount"
+              placeholder="Smith"
+            />
+            <p
+              *ngIf="
+                !companyForm.get('employeesCount').valid &&
+                companyForm.get('employeesCount').touched
+              "
+              class="error"
+            >
+              *Enter a employeeCount
+            </p>
+          </div>
+        </div>
+        <div class="domain">
+          <div class="name">Domain Name</div>
+          <div class="input">
+            <input
+              type="text"
+              formControlName="domainName"
+              placeholder="Customize your domain name"
+            />
+            <p
+              *ngIf="
+                !companyForm.get('domainName').valid &&
+                companyForm.get('domainName').touched
+              "
+              class="error"
+            >
+              *Enter a company domain
+            </p>
+            <button>.intranet.com</button>
+          </div>
+        </div>
+
+        <div class="button">
+          <button
+            type="submit"
+            [disabled]="!companyForm.valid"
+            [ngStyle]="{ opacity: !companyForm.valid ? '0.5' : '1' }"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

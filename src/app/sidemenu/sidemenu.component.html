@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="heading">
+    <h4>SA_INTRANET</h4>
+    <span><img src="assets/hamburger.png" /></span>
+  </div>
+  <div class="list">
+    <ul class="menu" id="menu">
+      <li
+        class="list-items"
+        *ngFor="let item of list"
+        [ngClass]="{ current: item.route }"
+        (click)="item.text == 'Logout' ? logOut() : ''"
+      >
+        <a id="{{ item.text }}">
+          <span class="{{ item.text }}"><img src="{{ item.path }}" /></span>
+          <div class="item-text" [innerHtml]="item.text"></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="container" *ngIf="user">
+  <app-header [login]="false"></app-header>
+  <div class="content">
+    <div class="image"></div>
+    <div class="content-wrapper">
+      <div class="header-name">Create Personal Passowrd</div>
+      <div class="some-content">
+        To make a workspace from scratch, please confirm your email address.
+      </div>
+      <form [formGroup]="userForm" (ngSubmit)="submit()">
+        <div class="next-wrapper">
+          <div class="firstName">
+            <div class="name">First Name</div>
+            <input type="text" formControlName="firstName" placeholder="John" />
+            <p
+              *ngIf="
+                !userForm.get('firstName').valid &&
+                userForm.get('firstName').touched
+              "
+              class="error"
+            >
+              *Enter a firstName
+            </p>
+          </div>
+          <div class="lastName">
+            <div class="name">Last Name</div>
+            <input type="text" formControlName="lastName" placeholder="Smith" />
+            <p
+              *ngIf="
+                !userForm.get('lastName').valid &&
+                userForm.get('lastName').touched
+              "
+              class="error"
+            >
+              *Enter a lastName
+            </p>
+          </div>
+        </div>
+        <div class="password">
+          <div class="name">Password</div>
+          <input
+            type="Password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <p
+            *ngIf="
+              !userForm.get('password').valid &&
+              userForm.get('password').touched
+            "
+            class="error"
+          >
+            *Enter a password
+          </p>
+        </div>
+
+        <div class="button">
+          <button
+            type="submit"
+            [disabled]="!userForm.valid"
+            [ngStyle]="{ opacity: !userForm.valid ? '0.5' : '1' }"
+          >
+            Complete
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-otp
+  *ngIf="otp"
+  [user]="true"
+  [userData]="userData"
+  (back)="user = true; otp = false"
+></app-otp>

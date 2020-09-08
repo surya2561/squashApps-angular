@@ -1,0 +1,59 @@
+.container {
+  height: calc(100% - 58px);
+
+  .content {
+    display: flex;
+    height: 100%;
+    .image {
+      background: url("../../../assets/workplaceimage.png");
+      background-repeat: no-repeat;
+      width: 700px;
+      background-size: 100% 100%;
+    }
+    .content-wrapper {
+      margin-left: 50px;
+      margin-top: 110px;
+      a {
+        font-size: 14px;
+        cursor: pointer;
+      }
+      p {
+        font-size: 13px;
+        color: red;
+        span {
+          color: blue;
+          cursor: pointer;
+        }
+      }
+      .name {
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: 500;
+      }
+      .some-content {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .otp {
+        margin-top: 50px;
+        .verification {
+          font-size: 15px;
+          color: grey;
+          margin-bottom: 10px;
+        }
+      }
+      .timer {
+        margin-top: 20px;
+        font-size: 13px;
+        color: darkblue;
+        font-weight: 500;
+        div {
+          margin-bottom: 10px;
+        }
+        span {
+          color: red;
+        }
+      }
+    }
+  }
+}

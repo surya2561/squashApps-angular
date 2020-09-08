@@ -1,0 +1,130 @@
+.form {
+  margin-top: 25px;
+  .subject {
+    font-size: 15px;
+    letter-spacing: 1px;
+    input {
+      width: 100%;
+      margin-top: 5px;
+      padding: 5px;
+      outline: none;
+      border: 1px solid lightgray;
+    }
+  }
+  .category {
+    margin-top: 20px;
+    button {
+      margin-top: 5px;
+      margin-left: 5px;
+      padding: 7px 15px;
+      border-radius: 25px;
+      outline: none;
+      border: none;
+      letter-spacing: 0.75px;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      margin-left: -45px;
+      li {
+        cursor: pointer;
+        margin-top: 5px;
+        margin-left: 5px;
+        padding: 7px 15px;
+        border-radius: 25px;
+        outline: none;
+        border: 1px solid lightgray;
+        letter-spacing: 0.75px;
+      }
+    }
+    .current {
+      color: white;
+      border: 1px solid limegreen;
+      background-color: limegreen;
+    }
+  }
+  .event-section {
+    .event {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      input {
+        outline: none;
+        width: 160px;
+        padding: 5px;
+        margin-top: 5px;
+        border: 1px solid lightgray;
+      }
+    }
+    .add {
+      margin-top: 10px;
+      font-size: 12px;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .location {
+      margin-top: 20px;
+      input {
+        width: 100%;
+        outline: none;
+        padding: 5px;
+
+        border: 1px solid lightgray;
+      }
+    }
+  }
+  .reminder {
+    margin-top: 20px;
+    input {
+      outline: none;
+      width: 160px;
+      padding: 5px;
+      margin-top: 5px;
+
+      border: 1px solid lightgray;
+    }
+  }
+  .description {
+    margin-top: 20px;
+    textarea {
+      margin-top: 5px;
+      width: 100%;
+      height: 70px;
+      outline: none;
+      padding: 5px;
+
+      border: 1px solid lightgray;
+    }
+  }
+  .notify {
+    margin-top: 20px;
+    div {
+      padding-top: 10px;
+    }
+  }
+  .emailBox {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    textarea {
+      width: 100%;
+      height: 50px;
+      padding: 5px;
+      outline: none;
+    }
+  }
+  .bottom {
+    margin-top: 20px;
+    float: right;
+    margin-bottom: 60px;
+    button {
+      padding: 10px 40px;
+      margin-left: 10px;
+      border: none;
+      outline: none;
+    }
+    .send {
+      background-color: limegreen;
+      color: white;
+    }
+  }
+}

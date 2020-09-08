@@ -1,0 +1,84 @@
+.container {
+  height: calc(100% - 58px);
+
+  .content {
+    display: flex;
+    height: 100%;
+    .image {
+      background: url("../../../assets/workplace-image.png");
+      background-repeat: no-repeat;
+      width: 700px;
+      background-size: 100% 100%;
+    }
+    .content-wrapper {
+      margin-left: 50px;
+      margin-top: 110px;
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+      .header-name {
+        font-size: 30px;
+        font-weight: 500;
+      }
+      .some-content {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .next-wrapper {
+        display: flex;
+        .firstName {
+          margin-top: 10px;
+          .name {
+            font-size: 15px;
+            color: grey;
+          }
+          input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+          }
+        }
+        .lastName {
+          margin-left: 40px;
+          margin-top: 10px;
+          .name {
+            font-size: 15px;
+            color: grey;
+          }
+          input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+          }
+        }
+      }
+      .password {
+        margin-top: 10px;
+        .name {
+          font-size: 15px;
+          color: grey;
+        }
+        input {
+          margin-top: 10px;
+          width: 90%;
+          padding: 10px;
+          outline: none;
+        }
+      }
+      .button {
+        margin-top: 40px;
+        button {
+          padding: 10px 40px;
+          background: limegreen;
+          color: white;
+          outline: none;
+          border: none;
+          letter-spacing: 0.8px;
+        }
+      }
+    }
+  }
+}

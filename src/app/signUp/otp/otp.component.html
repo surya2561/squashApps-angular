@@ -1,0 +1,32 @@
+<div class="container">
+  <app-header [login]="false"></app-header>
+  <div class="content">
+    <div class="image"></div>
+    <div class="content-wrapper">
+      <a (click)="backNav()"><-Back</a>
+      <div class="name">We've sent you a mail!</div>
+      <div class="some-content">
+        To make a workspace from scratch, please confirm your email address.
+      </div>
+      <div class="timer">
+        <div>Otp is valid for 5 minutes</div>
+        <span class="minutes">{{ minutes }} :</span>
+        <span class="seconds"> {{ seconds }}</span>
+      </div>
+      <div class="otp">
+        <div class="verification">Enter verification code</div>
+        <ng-otp-input
+          (onInputChange)="onOtpChange($event)"
+          [config]="{ length: 6 }"
+        ></ng-otp-input>
+      </div>
+      <p *ngIf="userData">
+        Please enter valid verification code.
+        <span (click)="resendOtp()">Resend Code.</span>
+      </p>
+      <p *ngIf="message">
+        {{ message }}
+      </p>
+    </div>
+  </div>
+</div>

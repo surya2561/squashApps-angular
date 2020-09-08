@@ -1,0 +1,147 @@
+<div class="container" [ngClass]="{ 'container-content': nav || comment }">
+  <app-sidemenu></app-sidemenu>
+  <div class="content">
+    <div class="con">
+      <app-heading></app-heading>
+      <div
+        class="announcement-section"
+        [ngStyle]="{ 'margin-right': comment ? '400px' : '0px' }"
+      >
+        <div class="section">
+          <div class="search">
+            <input
+              type="text"
+              name="text"
+              id="search"
+              placeholder="Search by title"
+              [(ngModel)]="searchText"
+            />
+            <img src="assets/search.png" />
+          </div>
+          <div class="add-announcement">
+            <button type="button" (click)="nav = true">
+              +Add Announcement
+            </button>
+          </div>
+        </div>
+
+        <div class="side" [ngClass]="{ backdrop: nav }">
+          <div
+            class="sideContent"
+            id="sideContent"
+            [ngStyle]="{
+              width: nav ? '500px' : '0px',
+              padding: nav ? '0px' : ''
+            }"
+          >
+            <div class="side-content-section">
+              <div class="header">
+                <span>Add New Announcement</span>
+                <span class="icon">
+                  <a
+                    href="javascript:void(0)"
+                    class="closebtn"
+                    (click)="nav = false"
+                    >×</a
+                  >
+                </span>
+              </div>
+              <app-announcement-form
+                [resetFormFields]="nav"
+                (updateAnnouncementData)="getAnnouncements()"
+              ></app-announcement-form>
+            </div>
+          </div>
+        </div>
+        <div class="description">
+          <div
+            class="description-content"
+            *ngFor="let data of announcementData; index as i"
+          >
+            <div class="letter">
+              <div
+                class="border"
+                [ngStyle]="{
+                  'background-color': i % 2 == 0 ? 'darkblue' : 'green'
+                }"
+              ></div>
+              <span
+                *ngIf="data.firstName"
+                [ngStyle]="{ color: i % 2 == 0 ? 'darkblue' : 'green' }"
+                >{{ data.firstName[0] | uppercase }}</span
+              >
+            </div>
+
+            <div class="content-data">
+              <h3 class="header">{{ data.subject }}</h3>
+              <div class="right-icons">
+                <div class="edit-icon">
+                  <img src="assets/editicon.png" />
+                </div>
+                <div
+                  class="comment-icon"
+                  (click)="
+                    comment = true;
+                    selectedData = data;
+                    commentDataObj = commentData[i]
+                  "
+                >
+                  <img src="assets/comments.png" />
+                  <div class="count">{{ data.comment }}</div>
+                </div>
+                <div class="created-date">
+                  {{ data.createdDate | date: "dd MMM, yy" }}
+                </div>
+              </div>
+              <p>
+                {{ data.description }}
+              </p>
+              <div class="bottom" *ngIf="data.eventDate || data.remainderDate">
+                <div class="date">
+                  <img src="../../assets/dateicon.png" />
+                  <span *ngIf="data.eventDate">{{
+                    data.eventDate | date: "dd MMM, yy"
+                  }}</span>
+                  <span *ngIf="data.remainderDate">{{
+                    data.remainderDate | date: "dd MMM, yy"
+                  }}</span>
+                </div>
+                <div class="location" *ngIf="data.location">
+                  <img src="assets/location.png" />
+                  <span>{{ data.location }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment-section" [ngClass]="{ backdropComment: comment }">
+        <div
+          class="commentContent"
+          id="commentContent"
+          [ngStyle]="{
+            width: comment ? '400px' : '0px'
+          }"
+        >
+          <div class="comment-content-section">
+            <div class="header">
+              <span class="icon">
+                <a
+                  href="javascript:void(0)"
+                  class="closebtn"
+                  (click)="comment = false"
+                  >×</a
+                >
+              </span>
+            </div>
+            <app-comment-section
+              *ngIf="comment"
+              (updateComment)="updateCommentData($event)"
+              [selectedDescription]="selectedData"
+            ></app-comment-section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

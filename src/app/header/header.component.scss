@@ -1,0 +1,27 @@
+.header {
+  border: 1px solid #eee;
+  box-shadow: 0 0 3px #ccc;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  .name {
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+    color: limegreen;
+  }
+  .right-header {
+    .login {
+      margin-right: 20px;
+      color: limegreen;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+    }
+    .mail {
+      font-size: 12px;
+      color: gray;
+    }
+  }
+}

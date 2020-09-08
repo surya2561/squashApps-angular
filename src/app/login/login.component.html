@@ -1,0 +1,58 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="content">
+    <div class="image"></div>
+    <div class="content-wrapper">
+      <div class="name">Login to your app</div>
+      <div class="some-content">
+        To make a workspace from scratch, please confirm your email address.
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="email">
+          <div class="email-address">Email Address</div>
+          <input
+            type="email"
+            placeholder="name@email.com"
+            formControlName="email"
+          />
+          <p
+            *ngIf="
+              !loginForm.get('email').valid && loginForm.get('email').touched
+            "
+            class="error"
+          >
+            *Enter a valid email
+          </p>
+        </div>
+
+        <div class="password">
+          <div class="name">Password</div>
+          <input
+            type="Password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <p
+            *ngIf="
+              !loginForm.get('password').valid &&
+              loginForm.get('password').touched
+            "
+            class="error"
+          >
+            *Enter a password
+          </p>
+        </div>
+        <p *ngIf="message">* {{ message }}</p>
+        <div class="button">
+          <button
+            type="submit"
+            [disabled]="!loginForm.valid"
+            [ngStyle]="{ opacity: !loginForm.valid ? '0.5' : '1' }"
+          >
+            Sign In
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

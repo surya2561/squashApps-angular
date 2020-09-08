@@ -1,0 +1,70 @@
+<div class="container" *ngIf="selectedDescription">
+  <div class="heading">
+    <div class="section">
+      <div class="border"></div>
+      <span class="letter">
+        {{ selectedDescription.firstName[0] | uppercase }}</span
+      >
+      <h3 class="name">{{ selectedDescription.subject }}</h3>
+    </div>
+    <div class="createdDate">{{ selectedDescription.createdDate | date }}</div>
+  </div>
+  <div class="border-line"></div>
+
+  <div class="content">
+    <p>
+      {{ selectedDescription.description }}
+    </p>
+  </div>
+  <div class="comments">
+    <div class="comment-data">
+      <div class="section-comments">
+        <div class="name">Comments</div>
+        <h3>{{ getComments.length }} replies</h3>
+      </div>
+      <div
+        class="individual-comment"
+        *ngFor="let commentData of getComments; index as i"
+      >
+        <div class="comment-section">
+          <div class="heading">
+            <div class="section">
+              <div
+                class="border"
+                [ngStyle]="{
+                  'background-color': i % 2 == 0 ? 'darkblue' : 'green'
+                }"
+              ></div>
+              <span
+                class="letter"
+                [ngStyle]="{ color: i % 2 == 0 ? 'darkblue' : 'green' }"
+              >
+                {{ commentData.firstName[0] | uppercase }}
+              </span>
+              <h3 class="name">{{ commentData.firstName }}</h3>
+            </div>
+            <div class="createdDate">{{ commentData.createdDate | date }}</div>
+          </div>
+          <p>
+            {{ commentData.comment }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+  <div
+    class="bottom"
+    [ngStyle]="{
+      position: getComments.length < 2 ? 'absolute' : 'relative',
+      bottom: getComments.length < 2 ? '0px' : ''
+    }"
+  >
+    <textarea
+      placeholder="Start a first comment"
+      [(ngModel)]="textArea"
+    ></textarea>
+    <img src="assets/send.png" (click)="saveComment()" />
+  </div>
+</div>
